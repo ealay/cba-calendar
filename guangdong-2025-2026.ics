@@ -1,81 +1,215 @@
-import express from "express";
-import ical from "ical-generator";
-import dayjs from "dayjs";
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CBA//Guangdong Hongyuan 2025-2026//CN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+TZID:Asia/Shanghai
 
-const app = express();
-const PORT = 3000;
-const TEAM = "广东宏远";
+BEGIN:VEVENT
+UID:gd-20251214@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251214T193500
+DTEND;TZID=Asia/Shanghai:20251214T213500
+SUMMARY:🏠 广东宏远 vs 南京同曦
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-const matches = [
-  { r: 1, d: "2025-12-14 19:35", h: "广东宏远", a: "南京同曦" },
-  { r: 2, d: "2025-12-16 19:35", h: "浙江稠州", a: "广东宏远" },
-  { r: 3, d: "2025-12-19 19:35", h: "广东宏远", a: "龙狮" },
-  { r: 4, d: "2025-12-21 19:35", h: "广东宏远", a: "青岛国信海天" },
-  { r: 5, d: "2025-12-23 19:35", h: "龙狮", a: "广东宏远" },
-  { r: 6, d: "2025-12-26 19:35", h: "广东宏远", a: "山东山高" },
-  { r: 7, d: "2025-12-28 19:35", h: "山西汾酒", a: "广东宏远" },
-  { r: 8, d: "2025-12-30 19:35", h: "天津荣钢", a: "广东宏远" },
-  { r: 9, d: "2026-01-01 19:35", h: "北京首钢", a: "广东宏远" },
-  { r:10, d: "2026-01-03 19:35", h: "北京控股", a: "广东宏远" },
-  { r:11, d: "2026-01-05 19:35", h: "广东宏远", a: "浙江稠州" },
-  { r:12, d: "2026-01-07 19:35", h: "广东宏远", a: "深圳新世纪" },
-  { r:13, d: "2026-01-11 19:35", h: "辽宁沈阳三生", a: "广东宏远" },
-  { r:14, d: "2026-01-13 19:35", h: "南京同曦", a: "广东宏远" },
-  { r:15, d: "2026-01-15 19:35", h: "广东宏远", a: "上海久事" },
-  { r:16, d: "2026-01-17 19:35", h: "广东宏远", a: "北京控股" },
-  { r:17, d: "2026-01-19 19:35", h: "四川锦城", a: "广东宏远" },
-  { r:18, d: "2026-01-21 19:35", h: "吉林东北虎", a: "广东宏远" },
-  { r:19, d: "2026-01-24 19:35", h: "广东宏远", a: "山西汾酒" },
-  { r:20, d: "2026-01-26 19:35", h: "广东宏远", a: "天津荣钢" },
-  { r:21, d: "2026-01-28 19:35", h: "广东宏远", a: "吉林东北虎" },
-  { r:22, d: "2026-02-01 19:35", h: "宁波富邦", a: "广东宏远" },
-  { r:23, d: "2026-02-03 19:35", h: "广东宏远", a: "上海久事" },
-  { r:24, d: "2026-03-11 20:00", h: "新疆广汇", a: "广东宏远" },
-  { r:25, d: "2026-03-13 20:00", h: "深圳新世纪", a: "广东宏远" },
-  { r:26, d: "2026-03-15 19:35", h: "广东宏远", a: "辽宁沈阳三生" },
-  { r:27, d: "2026-03-17 19:35", h: "广东宏远", a: "新疆广汇" },
-  { r:28, d: "2026-03-20 19:35", h: "江苏肯帝亚", a: "广东宏远" },
-  { r:29, d: "2026-03-23 19:35", h: "上海久事", a: "广东宏远" },
-  { r:30, d: "2026-03-25 19:35", h: "广东宏远", a: "四川锦城" },
-  { r:31, d: "2026-03-27 19:35", h: "广东宏远", a: "北京首钢" },
-  { r:32, d: "2026-03-29 19:35", h: "四川锦城", a: "广东宏远" },
-  { r:33, d: "2026-03-31 19:35", h: "广东宏远", a: "江苏肯帝亚" },
-  { r:34, d: "2026-04-04 19:35", h: "广东宏远", a: "浙江广厦" },
-  { r:35, d: "2026-04-06 19:35", h: "山东山高", a: "广东宏远" },
-  { r:36, d: "2026-04-08 19:35", h: "青岛国信海天", a: "广东宏远" },
-  { r:37, d: "2026-04-10 19:35", h: "广东宏远", a: "吉林东北虎" },
-  { r:38, d: "2026-04-12 19:35", h: "浙江广厦", a: "广东宏远" },
-  { r:39, d: "2026-04-14 19:35", h: "广东宏远", a: "宁波富邦" },
-  { r:40, d: "2026-04-18 19:35", h: "广东宏远", a: "福建浔兴" },
-  { r:41, d: "2026-04-20 19:35", h: "山西汾酒", a: "广东宏远" },
-  { r:42, d: "2026-04-24 19:35", h: "福建浔兴", a: "广东宏远" },
-];
+BEGIN:VEVENT
+UID:gd-20251216@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251216T193500
+DTEND;TZID=Asia/Shanghai:20251216T213500
+SUMMARY:✈️ 浙江稠州 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-app.get("/guangdong-2025-2026.ics", (req, res) => {
-  const cal = ical({
-    name: "广东宏远 CBA 2025–2026",
-    timezone: "Asia/Shanghai",
-  });
+BEGIN:VEVENT
+UID:gd-20251219@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251219T193500
+DTEND;TZID=Asia/Shanghai:20251219T213500
+SUMMARY:🏠 广东宏远 vs 龙狮
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-  matches.forEach(m => {
-    const isHome = m.h === TEAM;
-    const emoji = isHome ? "🏠" : "✈️";
+BEGIN:VEVENT
+UID:gd-20251221@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251221T193500
+DTEND;TZID=Asia/Shanghai:20251221T213500
+SUMMARY:🏠 广东宏远 vs 青岛国信海天
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-    const start = dayjs(m.d).toDate();
-    const end = dayjs(m.d).add(2, "hour").toDate();
+BEGIN:VEVENT
+UID:gd-20251223@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251223T193500
+DTEND;TZID=Asia/Shanghai:20251223T213500
+SUMMARY:✈️ 龙狮 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-    cal.createEvent({
-      start,
-      end,
-      summary: `${emoji} CBA｜${m.h} vs ${m.a}`,
-      description: `第${m.r}轮｜${isHome ? "主场比赛" : "客场比赛"}`,
-    });
-  });
+BEGIN:VEVENT
+UID:gd-20251226@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251226T193500
+DTEND;TZID=Asia/Shanghai:20251226T213500
+SUMMARY:🏠 广东宏远 vs 山东山高
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-  res.setHeader("Content-Type", "text/calendar; charset=utf-8");
-  res.send(cal.toString());
-});
+BEGIN:VEVENT
+UID:gd-20251228@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251228T193500
+DTEND;TZID=Asia/Shanghai:20251228T213500
+SUMMARY:✈️ 山西汾酒 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
 
-app.listen(PORT, () => {
-  console.log(`WebCal ready: http://localhost:${PORT}/guangdong-2025-2026.ics`);
-});
+BEGIN:VEVENT
+UID:gd-20251230@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20251230T193500
+DTEND;TZID=Asia/Shanghai:20251230T213500
+SUMMARY:✈️ 天津荣钢 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260101@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260101T193500
+DTEND;TZID=Asia/Shanghai:20260101T213500
+SUMMARY:✈️ 北京首钢 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260103@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260103T193500
+DTEND;TZID=Asia/Shanghai:20260103T213500
+SUMMARY:✈️ 北京控股 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260105@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260105T193500
+DTEND;TZID=Asia/Shanghai:20260105T213500
+SUMMARY:🏠 广东宏远 vs 浙江稠州
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260107@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260107T193500
+DTEND;TZID=Asia/Shanghai:20260107T213500
+SUMMARY:🏠 广东宏远 vs 深圳新世纪
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260111@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260111T193500
+DTEND;TZID=Asia/Shanghai:20260111T213500
+SUMMARY:✈️ 辽宁沈阳三生 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260113@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260113T193500
+DTEND;TZID=Asia/Shanghai:20260113T213500
+SUMMARY:✈️ 南京同曦 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260115@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260115T193500
+DTEND;TZID=Asia/Shanghai:20260115T213500
+SUMMARY:🏠 广东宏远 vs 上海久事
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260117@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260117T193500
+DTEND;TZID=Asia/Shanghai:20260117T213500
+SUMMARY:🏠 广东宏远 vs 北京控股
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260119@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260119T193500
+DTEND;TZID=Asia/Shanghai:20260119T213500
+SUMMARY:✈️ 四川锦城 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260121@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260121T193500
+DTEND;TZID=Asia/Shanghai:20260121T213500
+SUMMARY:✈️ 吉林东北虎 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260124@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260124T193500
+DTEND;TZID=Asia/Shanghai:20260124T213500
+SUMMARY:🏠 广东宏远 vs 山西汾酒
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260126@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260126T193500
+DTEND;TZID=Asia/Shanghai:20260126T213500
+SUMMARY:🏠 广东宏远 vs 天津荣钢
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260128@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260128T193500
+DTEND;TZID=Asia/Shanghai:20260128T213500
+SUMMARY:🏠 广东宏远 vs 吉林东北虎
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260201@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260201T193500
+DTEND;TZID=Asia/Shanghai:20260201T213500
+SUMMARY:✈️ 宁波富邦 vs 广东宏远
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+BEGIN:VEVENT
+UID:gd-20260203@cba
+DTSTAMP:20250801T000000Z
+DTSTART;TZID=Asia/Shanghai:20260203T193500
+DTEND;TZID=Asia/Shanghai:20260203T213500
+SUMMARY:🏠 广东宏远 vs 上海久事
+DESCRIPTION:CBA 2025–2026 常规赛
+END:VEVENT
+
+END:VCALENDAR
